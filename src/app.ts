@@ -6,9 +6,9 @@ import scrap from './routes/scrap';
 const app = express();
 
 // Enable CORS for the frontend's origin
-app.use(cors({
+/* app.use(cors({
   origin: 'http://localhost:5173',
-}));
+})); */
 
 app.use('/api/balance-sheet', balanceSheetRouter);
 app.use('/api/scarp', scrap);
