@@ -1,6 +1,6 @@
 import express from 'express';
 // import cors from 'cors';
-import balanceSheetRouter from './routes/balanceSheet';
+import download from './routes/download';
 import scrap from './routes/scrap';
 
 const app = express();
@@ -10,7 +10,7 @@ const app = express();
   origin: 'http://localhost:5173',
 })); */
 
-app.use('/api/balance-sheet', balanceSheetRouter);
-app.use('/api/scarp', scrap);
+app.use('/download', download);
+app.use('/scrapper', scrap);
 
 export default app;
