@@ -77,7 +77,7 @@ router.get('/', async (req, res) => {
 
     
   } catch (error: any) {
-    res.status(500).json({ error: 'Failed to fetch balance sheet', details: error.message });
+    res.status(500).json({ error: 'Failed to load page', details: error.message });
   }
 });
 
