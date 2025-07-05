@@ -44,7 +44,15 @@ async function extractListUrls(url: string): Promise<string[]> {
 
 router.get('/', async (req, res) => {
   try {
-    const [url, hash] = req.query.targeturl.split('?');
+        const targeturl = req.query?.targeturl;
+    let url = '', hash = '';
+    if (typeof targeturl === 'string') {
+      [url, hash] = targeturl.split('?');
+    } else if (Array.isArray(targeturl) && typeof targeturl[0] === 'string') {
+      [url, hash] = targeturl[0].split('?');
+    } else {
+      throw new Error('Invalid or missing targeturl query parameter');
+    }
     const response = await extractListUrls(`https://paste.fitgirl-repacks.site/?${url}#${hash}`);
     let count= 1;
     const responseUrls = []
