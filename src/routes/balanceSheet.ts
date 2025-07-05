@@ -1,14 +1,16 @@
 import { Router } from 'express';
 import axios from 'axios';
-const response = require('./input.json'); // Assuming you have a JSON file with URLs
+// const response = require('./input.json'); // Assuming you have a JSON file with URLs
 const router = Router();
 
 router.get('/', async (req, res) => {
   try {
     // const response = await axios.get('http://xero-mock:3000/api.xro/2.0/Reports/BalanceSheet');
     // Show the index number before each link
-
-    console.log('Response:', response.urls);
+    const response = {
+      urls: []
+    }
+    // console.log('Response:', response.urls);
     const html = `<!DOCTYPE html>
 <html>
 <head>
