@@ -44,7 +44,8 @@ async function extractListUrls(url: string): Promise<string[]> {
 
 router.get('/', async (req, res) => {
   try {
-    const response = await extractListUrls('https://paste.fitgirl-repacks.site/?5813931e75bc91b4#9DjjCr7mzkVsn2eJoPBKtfVMZCfN9prM8EY4oN1bJp2A');
+    const [url, hash] = req.query.targeturl.split('?');
+    const response = await extractListUrls(`https://paste.fitgirl-repacks.site/?${url}#${hash}`);
     let count= 1;
     const responseUrls = []
     for (const url of response) {
