@@ -71,11 +71,12 @@ router.get('/', async (req, res) => {
     }
 
     // console.log('Response:', response);
-      fs.writeFile ("./src/routes/input.json", JSON.stringify(response), function(err : any) {
+    /*   fs.writeFile ("./src/routes/input.json", JSON.stringify(response), function(err : any) {
       if (err) throw err;
       console.log('complete');
       }
-  );
+  ); */
+  console.log('complete');
     res.json({count: count, urls: responseUrls});
   } catch (error: any) {
     res.status(500).json({ error: 'Failed to fetch balance sheet', details: error.message });
